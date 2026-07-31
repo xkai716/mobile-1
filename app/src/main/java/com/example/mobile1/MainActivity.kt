@@ -1,5 +1,5 @@
 package com.example.mobile1
-
+儿子
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -45,3 +45,4 @@ fun GreetingPreview() {
         Greeting("Android")
     }
 }
+
