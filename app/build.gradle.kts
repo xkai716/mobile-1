@@ -4,7 +4,11 @@ plugins {
 }
 
 android {
+<<<<<<< HEAD
     namespace = "com.example.myapplication"
+=======
+    namespace = "com.example.mobile1"
+>>>>>>> 63a9aca986b56e32959ca50d325bdcb69338a6a2
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -12,8 +16,13 @@ android {
     }
 
     defaultConfig {
+<<<<<<< HEAD
         applicationId = "com.example.myapplication"
         minSdk = 28
+=======
+        applicationId = "com.example.mobile1"
+        minSdk = 24
+>>>>>>> 63a9aca986b56e32959ca50d325bdcb69338a6a2
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -23,11 +32,17 @@ android {
 
     buildTypes {
         release {
+<<<<<<< HEAD
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+=======
+            optimization {
+                enable = false
+            }
+>>>>>>> 63a9aca986b56e32959ca50d325bdcb69338a6a2
         }
     }
     compileOptions {
