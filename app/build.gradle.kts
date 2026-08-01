@@ -4,26 +4,13 @@ plugins {
 }
 
 android {
-<<<<<<< HEAD
     namespace = "com.example.myapplication"
-=======
-    namespace = "com.example.mobile1"
->>>>>>> 63a9aca986b56e32959ca50d325bdcb69338a6a2
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 37
 
     defaultConfig {
-<<<<<<< HEAD
         applicationId = "com.example.myapplication"
         minSdk = 28
-=======
-        applicationId = "com.example.mobile1"
-        minSdk = 24
->>>>>>> 63a9aca986b56e32959ca50d325bdcb69338a6a2
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -32,17 +19,11 @@ android {
 
     buildTypes {
         release {
-<<<<<<< HEAD
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-=======
-            optimization {
-                enable = false
-            }
->>>>>>> 63a9aca986b56e32959ca50d325bdcb69338a6a2
         }
     }
     compileOptions {
@@ -63,6 +44,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
+    
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)

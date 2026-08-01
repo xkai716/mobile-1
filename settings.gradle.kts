@@ -22,9 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-<<<<<<< HEAD
 rootProject.name = "My Application"
-=======
-rootProject.name = "mobile 1"
->>>>>>> 63a9aca986b56e32959ca50d325bdcb69338a6a2
 include(":app")

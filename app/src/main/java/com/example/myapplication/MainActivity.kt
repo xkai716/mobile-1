@@ -7,10 +7,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.example.myapplication.screen.ContactDetailScreen
+import com.example.myapplication.screen.ContactList
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,10 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    AppNavigation(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -31,17 +33,23 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun AppNavigation(modifier: Modifier = Modifier) {
+    val navController = rememberNavController()
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyApplicationTheme {
-        Greeting("Android")
+    NavHost(
+        navController = navController,
+        startDestination = "contactList",
+        modifier = modifier
+    ) {
+        composable("contactList") {
+            ContactList(navController = navController)
+        }
+        composable(
+            route = "contactDetail/{contactId}",
+            arguments = listOf(navArgument("contactId") { type = NavType.IntType })
+        ) { backStackEntry ->
+            val contactId = backStackEntry.arguments?.getInt("contactId") ?: 0
+            ContactDetailScreen(contactId = contactId, navController = navController)
+        }
     }
 }
